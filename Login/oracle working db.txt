@@ -1,0 +1,119 @@
+CREATE TABLE admin (
+  id number(10) CHECK (id > 0) NOT NULL,
+  name varchar2(30) NOT NULL,
+  email varchar2(30) NOT NULL,
+  dob varchar2(10) DEFAULT NULL,
+  gender varchar2(10) DEFAULT NULL,
+  bloodgroup varchar2(3) DEFAULT NULL,
+  contact_number varchar2(11) DEFAULT NULL,
+  address varchar2(50) DEFAULT NULL,
+  religion varchar2(10) DEFAULT NULL,
+  join_date varchar2(10) DEFAULT NULL,
+  salary varchar2(10) DEFAULT NULL,
+  password varchar2(10) DEFAULT NULL,
+  image varchar2(500) DEFAULT NULL
+) ; 
+
+INSERT INTO admin (id, name, email, dob, gender, bloodgroup, contact_number, address, religion, join_date, salary, password, image)
+ SELECT 1, 'ashiq', 'ashiq@gmail.com', '01/01/21', 'male', 'O+', '017', 'dhaka', 'Islam', '01/01/21', '50000', 'aa', 'files/glutsetup.png' FROM dual UNION ALL 
+ SELECT 2, 'shoeele', 'shoeele@gmail.com', '2021-01-04', 'F', 'B+', '01971992725', 'Kuril, Dhaka, Bangladesh', 'Islam', '2020-12-29', '80000', 'aa', 'files/glutsetup.png' FROM dual UNION ALL 
+ SELECT 3, 'azim', 'azim@apex', '2021-01-05', 'M', 'B-', '01971992725', 'Kuril, Dhaka, Bangladesh', 'Islam', '2021-01-05', '80000', 'aa', 'files/Screenshot (1).png' FROM dual UNION ALL
+ SELECT 4, 'jasun', 'jasun@apex', '2021-01-05', 'M', 'B-', '01971992725', 'Kuril, Dhaka, Bangladesh', 'Islam', '2021-01-05', '80000', 'aa', 'files/Screenshot (1).png' FROM dual UNION ALL
+SELECT 5, 'ridoy', 'ridou@apex', '2021-01-05', 'M', 'B-', '01971992725', 'Kuril, Dhaka, Bangladesh', 'Islam', '2021-01-05', '80000', 'aa', 'files/Screenshot (1).png' FROM dual;
+
+
+
+CREATE TABLE grade (
+  id number(10) NOT NULL,
+  mid varchar2(5) NOT NULL,
+  m_total varchar2(5) NOT NULL,
+  final varchar2(5) NOT NULL,
+  f_total varchar2(5) NOT NULL
+) ;
+
+
+INSERT INTO grade (id, mid, m_total, final, f_total)
+ SELECT 1, '65', '100', '70', '100' FROM dual UNION ALL 
+ SELECT 2, '70', '75', '68', '80' FROM dual UNION ALL 
+ SELECT 3, '94', '70', '80', '90' FROM dual UNION ALL 
+ SELECT 4, '100', '45', '98', '85' FROM dual;
+ 
+ 
+ CREATE TABLE login_type (
+  id number(10) NOT NULL,
+  email varchar2(25) NOT NULL,
+  password varchar2(25) NOT NULL,
+  type varchar2(10) NOT NULL
+) ;
+
+
+
+INSERT INTO login_type (id, email, password, type)
+ SELECT 2, 'ridoy@apex.com', 'a', 'teacher' FROM dual UNION ALL 
+ SELECT 1, 'azim@apex.com', 'a', 'teacher' FROM dual UNION ALL 
+ SELECT 8, 'aklima@gmail.com', 'a', 'teacher' FROM dual UNION ALL 
+ SELECT 36, 'shihab@gmail.com', 'a', 'teacher' FROM dual UNION ALL 
+ SELECT 2, 'shoeele@gmail.com', 'aa', 'admin' FROM dual UNION ALL 
+ SELECT 3, 's@g.c', 'aa', 'admin' FROM dual UNION ALL 
+ SELECT 1, 'ashiq@gmail.com', 'aa', 'admin' FROM dual;
+ 
+ 
+ 
+ CREATE TABLE study_material (
+  id number(10) NOT NULL,
+  t_id varchar2(25) NOT NULL,
+  section_id varchar2(25) NOT NULL,
+  file_path varchar2(50) NOT NULL
+) ;
+
+
+INSERT INTO study_material (id, t_id, section_id, file_path)
+ SELECT 1, '1', '1', 'study/CSC 3222 Web Technologies - Fall 2020-2021.p' FROM dual UNION ALL 
+ SELECT 13, '1', '1', 'study/Screenshot 2020-12-25 202825.png' FROM dual UNION ALL 
+ SELECT 16, '8', '1', 'study/52.png' FROM dual UNION ALL 
+ SELECT 17, '1', '1', 'study/Screenshot (1).png' FROM dual;
+ 
+ 
+ CREATE TABLE teacher (
+  t_id number(10) NOT NULL,
+  t_name varchar2(25) NOT NULL,
+  email varchar2(25) NOT NULL,
+  dob varchar2(25) NOT NULL,
+  gender varchar2(25) NOT NULL,
+  blood_group varchar2(25) NOT NULL,
+  address clob NOT NULL,
+  contact_number varchar2(11) NOT NULL,
+  religion varchar2(25) NOT NULL,
+  joining_year varchar2(25) NOT NULL,
+  salary varchar2(25) NOT NULL,
+  department varchar2(25) NOT NULL,
+  designation varchar2(25) NOT NULL,
+  working_experience varchar2(25) NOT NULL,
+  password varchar2(25) NOT NULL,
+  profile_image varchar2(50) NOT NULL
+) ;
+
+
+
+INSERT INTO teacher (t_id, t_name, email, dob, gender, blood_group, address, contact_number, religion, joining_year, salary, department, designation, working_experience, password, profile_image)
+ SELECT 1, 'pronoy', 'pronoy@apex.com', '2020-12-31', 'male', 'A+', 'dhaka', '01400000000', 'Islam', '2020-12-23', '35000', 'CS', 'jr', '1', 'a', 'files/WUB.png' FROM dual UNION ALL 
+ SELECT 2, 'tareq', 'tareq@apex.com', '2020-12-10', 'male', 'B+', 'dhaka', '01800000000', 'Islam', '2020-12-09', '35000', 'CS', 'jr', '3', 'a', 'files/2.jpg' FROM dual UNION ALL 
+ SELECT 3, 'saif', 'saif@gmail', '2020-12-08', 'female', 'A-', 'Kuril,', '01700000000', 'Hindu', '2020-12-10', '80000', 'CS', 'j', '2', 'a', 'files/2.jpg' FROM dual UNION ALL 
+ SELECT 4, 'imran', 'imran@gmail.com', '2021-01-06', 'male', 'O+', 'Kuril, Dhaka, Bangladesh', '01500000000', 'Islam', '2021-01-05', '80000', 'Englisg', 'j', '11', 'a', 'files/Screenshot (7).png' FROM dual;
+
+
+ALTER TABLE admin
+  ADD PRIMARY KEY (id);
+
+ALTER TABLE grade
+  ADD PRIMARY KEY (id);
+  
+  ALTER TABLE login_type
+  ADD PRIMARY KEY (email);
+
+ALTER TABLE study_material
+  ADD PRIMARY KEY (id);
+
+ALTER TABLE teacher
+  ADD PRIMARY KEY (email);
+  --ADD UNIQUE KEY `t_id` (t_id);
