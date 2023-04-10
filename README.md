@@ -17,7 +17,7 @@ Installation
 To install the University Management System, follow these steps:
 
     Clone the repository to your local machine.
-    Import the included SQL file university_management_system.sql into your database management system.
+    Import the included Oracle SQL script university_management_system.sql into your database management system.
     Configure the database connection settings in config.php.
     Upload the files to your web server.
 
